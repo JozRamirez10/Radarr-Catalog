@@ -1,0 +1,152 @@
+/* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))]
+         from-slate-900 via-[#050505] to-black
+         text-white min-h-screen bg-fixed;
+}
+
+@layer components {
+  /* ==========================================
+   Layout & Header
+   ========================================== */
+  .catalog-container {
+    @apply container mx-auto px-6 py-12 max-w-7xl;
+  }
+
+  .catalog-header {
+    @apply mb-10 flex flex-col md:flex-row md:items-center gap-8;
+  }
+
+  .catalog-title-group {
+    @apply flex-none;
+  }
+
+  .catalog-title {
+    @apply text-4xl font-extrabold tracking-tight text-white mb-2;
+  }
+
+  .catalog-subtitle {
+    @apply text-gray-400 text-lg;
+  }
+
+  /* ==========================================
+    Buscador
+    ========================================== */
+  .search-wrapper {
+    @apply relative w-full flex-1;
+  }
+
+  .search-icon-wrapper {
+    @apply absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none;
+  }
+
+  .search-icon {
+    @apply w-5 h-5 text-gray-500;
+  }
+
+  .search-input {
+    @apply block w-full p-4 pl-12 text-base text-white bg-gray-900/50
+          border border-gray-700/50 rounded-xl placeholder-gray-500
+          focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500
+          transition-all outline-none backdrop-blur-sm;
+  }
+
+  /* ==========================================
+    Estados (Carga, Error, Vacío)
+    ========================================== */
+  .state-wrapper {
+    @apply flex flex-col items-center justify-center py-32;
+  }
+
+  .state-wrapper--compact {
+    @apply py-20;
+  }
+
+  .state-icon {
+    @apply h-16 w-16 mx-auto mb-4;
+  }
+
+  .spinner {
+    @apply w-14 h-14 border-4 border-indigo-500 border-t-transparent rounded-full animate-spin mb-4;
+  }
+
+  .loading-text {
+    @apply text-indigo-400 text-xl font-medium animate-pulse;
+  }
+
+  .error-card {
+    @apply bg-red-950/40 border border-red-500/50 rounded-2xl p-8 text-center max-w-lg shadow-xl shadow-red-900/20;
+  }
+
+  .error-icon {
+    @apply text-red-500;
+  }
+
+  .error-title {
+    @apply text-2xl font-bold text-red-400 mb-2;
+  }
+
+  .error-text {
+    @apply text-gray-300;
+  }
+
+  .empty-state {
+    @apply col-span-full text-center py-32;
+  }
+
+  .empty-icon {
+    @apply text-gray-700;
+  }
+
+  .empty-text {
+    @apply text-gray-400 text-xl;
+  }
+
+  .empty-highlight {
+    @apply text-white;
+  }
+
+  /* ==========================================
+    Grid y Tarjetas de Películas
+    ========================================== */
+  .movies-grid {
+    @apply grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-6;
+  }
+
+  .movie-card {
+    @apply relative rounded-xl overflow-hidden cursor-pointer shadow-lg hover:shadow-2xl
+          transition-all duration-300 transform hover:-translate-y-2 hover:scale-105
+          bg-gray-900 aspect-[2/3];
+  }
+
+  .movie-poster {
+    @apply w-full h-full object-cover transition-opacity duration-300 group-hover:opacity-60;
+  }
+
+  .movie-overlay {
+    @apply absolute inset-0 bg-gradient-to-t from-gray-950 via-gray-900/60 to-transparent
+          opacity-0 group-hover:opacity-100 transition-opacity duration-300
+          flex flex-col justify-end p-4;
+  }
+
+  .movie-title {
+    @apply font-bold text-white leading-tight mb-1;
+  }
+
+  .movie-year {
+    @apply text-sm text-gray-300 font-medium mb-4;
+  }
+
+  .download-btn {
+    @apply flex items-center justify-center gap-2 bg-indigo-600 hover:bg-indigo-500
+          text-white text-sm font-semibold py-2 px-4 rounded-lg transition-colors w-full;
+  }
+
+  .download-icon {
+    @apply h-4 w-4;
+  }
+}
