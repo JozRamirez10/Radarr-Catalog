@@ -1,0 +1,24 @@
+services:
+  radarr-catalog-backend:
+    build:
+      context: ./Radarr-Catalog-Backend
+      dockerfile: Dockerfile
+    container_name: radarr-catalog-backend
+    ports:
+      - "8080:8080"
+    env_file:
+      - ./Radarr-Catalog-Backend/.env
+    volumes:
+      - /path/to/your/movies:/movies
+    restart: always
+
+  radarr-catalog-frontend:
+    build:
+      context: ./Radarr-Catalog-Frontend
+      dockerfile: Dockerfile
+    container_name: radarr-catalog-frontend
+    ports:
+      - "80:80"
+    depends_on:
+      - radarr-catalog-backend
+    restart: always
